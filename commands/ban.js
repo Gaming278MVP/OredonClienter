@@ -30,7 +30,7 @@ if (channelmark == true) {
   .setTimestamp()
   .setFooter(`• Ban User Information`, banTaged.user.displayAvatarURL);
   
-  msg.channel.send(`${banTaged.user.username} has been Kicked by ${msg.author} Beacuse: ${reason}`);
+  msg.channel.send(`${banTaged.user.tag} has been Banned by ${msg.author} Beacuse: ${reason}`);
   banTaged.ban(reason);
   logs.send(embed);  
 } else {

@@ -2,6 +2,7 @@ const { ShardingManager } = require('discord.js');
 const moment = require("moment-timezone");
 const Discord = require("discord.js");
 const { Client, Util, RichEmbed, Collection } = require("discord.js");
+const cooldowns = new Collection();
 const client = new Client({
     disableEvents: [
 ],
@@ -35,6 +36,12 @@ client.aliases[al] = cmd;
   }else{
 client.aliases[file.conf.aliases] = cmd;
 }
+}
+
+for(const cmd of client.commands){
+const file = require(`./commands/${cmd}`);
+if(!file.conf || !file.conf.aliases) continue;
+  
 }
 
 require("./server.js");
@@ -99,7 +106,7 @@ client.on('message', async (message) => { // eslint-disable-line
   var sender = message.author;
   var cmd = args.shift().toLowerCase();
   
-    try {
+  try {
       if(client.aliases[cmd]){
 				delete require.cache[require.resolve(`./commands/${client.aliases[cmd]}`)];
         require(`./commands/${client.aliases[cmd]}`).run(client, message, args);
@@ -116,64 +123,11 @@ client.on('message', async (message) => { // eslint-disable-line
   } catch (e) {
     console.log(e.stack)                                                                  
   } finally {
-   console.log(`${message.author.tag} used ${cmd} in shard ${client.shard.id} and guild ${message.guild.name} (${message.guild.id})`)
+   console.log(`${message.author.tag} used ${cmd} in guild ${message.guild.name} (${message.guild.id})`)
 }
   
 // Music Command
 // ============================================================================================================================================
-
-	if (cmd === 'play') {
-		const voiceChannel = message.member.voiceChannel;
-		if (!voiceChannel) return message.channel.send('I\'m sorry but you need to be in a voice channel to play music!');
-    if (!args[0]) return message.channel.send(`Please following the code! : ${oredon[message.guild.id].prefix}play **[Song Name/URL/Playlist URL]**`)
-		const permissions = voiceChannel.permissionsFor(message.client.user);
-		if (!permissions.has('CONNECT')) {
-			return message.channel.send('I cannot connect to your voice channel, make sure I have the proper permissions!');
-		}
-		if (!permissions.has('SPEAK')) {
-			return message.channel.send('I cannot speak in this voice channel, make sure I have the proper permissions!');
-		}
-		if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
-			const playlist = await youtube.getPlaylist(url);
-			const videos = await playlist.getVideos();
-			for (const video of Object.values(videos)) {
-				const video2 = await youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
-				await handleVideo(video2, message, voiceChannel, true); // eslint-disable-line no-await-in-loop
-			}
-			return message.channel.send(`✅ Playlist: **${playlist.title}** has been added to the queue!`);
-		} else {
-			try {
-				var video = await youtube.getVideo(url);
-			} catch (error) {
-				try {
-					var videos = await youtube.searchVideos(searchString, 10);
-					let index = 0;
-					message.channel.send(`
-__**Song selection:**__
-${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}
-Please provide a value to select one of the search results ranging from 1-10.
-					`);
-					// eslint-disable-next-line max-depth
-					try {
-						var response = await message.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
-							maxMatches: 1,
-							time: 10000,
-							errors: ['time']
-						});
-					} catch (err) {
-						console.error(err);
-						return message.channel.send('No or invalid value entered, cancelling video selection.');
-					}
-					const videoIndex = parseInt(response.first().content);
-					var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
-				} catch (err) {
-					console.error(err);
-					return message.channel.send('🆘 I could not obtain any search results.');
-				}
-			}
-			return handleVideo(video, message, voiceChannel);
-		}
-	}
 });
 exports.handleVideo = handleVideo;
 exports.queue = queue;
@@ -229,9 +183,9 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
     .setColor('RANDOM')
     .setAuthor(`🎶 Added Queue:`)
     .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
-    .setTitle(`${song.title}`, song.url)
+    .setDescription(`**[${song.title}](${song.url})**`)
     .addField("Duration:", `${require('./util.js').timeString(song.durationmm)}`, true)
-    .addField('<:youtubers:529206401327955998> Uploaded by:', `[${song.uploaded}](${song.channel})`, true)
+    .addField('<:youtubers:529206401327955998> Uploaded by:', `**[${song.uploaded}](${song.channel})**`, true)
     .addField('Voice Channel:', song.voicechan, true)
     .addField('👤 Requested By:', song.authors.tag, true)
     .addField('Uploaded At:', song.create, true)
