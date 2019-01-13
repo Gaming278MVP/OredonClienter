@@ -1,12 +1,11 @@
 const Discord = require("discord.js");
 
-module.exports.run = (client, message, args) => {
+exports.run = (client, msg, args) => {
   let embed = new Discord.RichEmbed()
-  .setTitle("Oredon Clienter's Invite Links")
-  .addField("🔗 Link", '**===============================**\n***Want Invite My Bot?***\n**Link:** [Click Here](https://discordapp.com/oauth2/authorize?client_id=519330418642911237&permissions=2146958839&scope=bot)')
-  message.channel.send(embed);
+  .setColor('RANDOM')
+  .setTitle(`${client.user.username}'s Invite Link`)
+  .setDescription('==================== \n**[Invite Me!](https://discord.now.sh/511890934460317697)** \n====================')
+  msg.channel.send(embed);
 }
 
-module.exports.help = {
-  name: "invite"
-}
+//the code is stop in here

@@ -1,7 +1,5 @@
-faiqqqq
-
-// ada autorole pake dabtabase dan economy command
-ada cmd yg ada database?
-Ok
-lu abis nhapain asw :'v
-abis buat apaan???
+`
+__**Song selection:**__
+${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}
+Please provide a value to select one of the search results ranging from 1-10.
+					`

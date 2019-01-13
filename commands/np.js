@@ -8,7 +8,8 @@ exports.run = async(client, msg, args) => {
 }
 
 exports.conf = {
-  aliases: ['nowplaying']
+  aliases: ['nowplaying'],
+  cooldown: "5"
 }
 
 exports.help = {

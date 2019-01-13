@@ -1,11 +1,8 @@
-//Uptime Robot 24/7 Host
-//*************************************************************
-const http = require('http');
-const express = require('express');
-const app = express();
-
-app.listen(process.env.PORT);
-setInterval(() => {
-  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-}, 280000);
-//*************************************************************
+const fetch = require("superagent");
+      fetch.get(`https://spiffy-lock.glitch.me/`).set('user-agent', 'official-pinger/1.0.0').then(x => x);
+    setInterval(() => {
+      fetch.get(`https://spiffy-lock.glitch.me/`).set('user-agent', 'official-pinger/1.0.0').then(x => x);
+    }, 180000); 
+    setInterval(() => {
+      fetch.get(`https://spiffy-lock.glitch.me/`).set('user-agent', 'official-pinger/1.0.0').then(x => x);
+    }, 240000);

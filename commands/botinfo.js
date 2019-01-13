@@ -13,6 +13,7 @@ exports.run = (client, msg, args) => {
 = **STATISTICS** = 
 • Bot        :: ${client.user.tag} 
 • Developer  :: MesaRadar12 | FaiqGamingYT
+• Credits    :: Thanks CEO Cha Soo Hyun#1945 ServerRoles & ServerEmoji!
 • Mem Usage  :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(os.totalmem() / 1024 / 1024).toFixed(2)} MB
 • Uptime     :: ${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds
 • Users      :: ${client.users.size.toLocaleString()} 
