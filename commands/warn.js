@@ -1,11 +1,17 @@
 const Discord = require('discord.js');
 exports.run = (client, message, args) => {
+  let oredon = JSON.parse(fs.readFileSync("./oredon.json", "utf8"));
+  if(!oredon[message.guild.id]){
+     oredon[message.guild.id] = {
+       prefix: config.bot_prefix
+     }
+}
     var embedColor = '#FAFF00' // Change this to change the color of the embeds!
     
     var missingArgsEmbed = new Discord.RichEmbed() // Creates the embed thats sent if the command isnt run right
         .setColor(embedColor)
         .setTitle('<:WrongMark:524375774741135362> Missing Arguments!')
-        .setDescription('Usage: `r!warn [@User] [Reason]`')
+        .setDescription(`Usage: \`${oredon[message.guild.id].prefix}warn [@User] [Reason]\``)
     if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send("<:WrongMark:524375774741135362> You don't have permissions to warn member!"); // Checks if the user has the permission
     let mentioned = message.mentions.users.first(); // Gets the user mentioned!
     if(!mentioned) return message.channel.send(missingArgsEmbed); // Triggers if the user donsn't tag a user in the message
