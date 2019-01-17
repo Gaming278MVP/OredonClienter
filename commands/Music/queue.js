@@ -13,6 +13,11 @@ ${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
 		`);
 	}
 
+exports.conf = {
+    aliases: [],
+    cooldowns: '5'
+}
+
 exports.help = {
   name: "queue"
 }
