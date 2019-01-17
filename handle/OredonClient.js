@@ -16,8 +16,6 @@ class OredonBot extends Client {
     this.snek = require('node-superfetch');
     this.config = require('../config.json');
     this.util = require('./util.js');
-    this.userLevel = require('../../src/database/xp');
-    this.userBalance = require('../../src/database/balance');
     this.version = require('../../package.json').version;
   }
     updateStats() {
