@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = (client, message, args) => {
+exports.run = (client, message, args) => {
   let start = Date.now(); message.channel.send(':ping_pong: | Pong! ').then(message => { 
     let diff = (Date.now() - start); 
     let API = (client.ping).toFixed(2)
@@ -15,6 +15,11 @@ module.exports.run = (client, message, args) => {
     });
 }
 
-module.exports.help = {
+exports.conf = {
+  aliases: [],
+  cooldowns: '5'
+}
+
+exports.help = {
   name: "ping"
 }
