@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const ms = require("ms");
 
-module.exports.run = async (bot, message, args) => {
+exports.run = async (bot, message, args) => {
 
     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Sorry, but you do not have valid permissions! If you beleive this is a error, contact an owner.");
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
@@ -40,6 +40,11 @@ module.exports.run = async (bot, message, args) => {
 
 }
 
-module.exports.help = {
+exports.conf = {
+    aliases: [],
+    cooldowns: '5'
+}
+
+exports.help = {
     name: "tempmute"
 }
