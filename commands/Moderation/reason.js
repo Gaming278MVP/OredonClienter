@@ -1,5 +1,5 @@
 const fs = require("fs");
-const config = require("../config.json")
+const config = require("../../config.json")
 
 async function embedSan(embed) {
   embed.message ? delete embed.message : null;
@@ -13,7 +13,7 @@ async function embedSan(embed) {
 }
 
 exports.run = async(client, msg, args) => {
-  let oredon = JSON.parse(fs.readFileSync("./oredon.json", "utf8"));
+  let oredon = JSON.parse(fs.readFileSync("../../oredon.json", "utf8"));
   if(!oredon[msg.guild.id]){ 
       oredon[msg.guild.id] = {
        prefix: config.bot_prefix
