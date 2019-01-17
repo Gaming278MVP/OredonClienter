@@ -15,7 +15,7 @@ exports.run = (client, message, args) => {
  .setTitle("**Oredon Clienter's Command Help**")
  .setAuthor(`My prefix is ${oredon[message.guild.id].prefix}`, client.user.displayAvatarURL)
  .addField("⚒ Utility", '**Avatar, Ping, Say, BotInfo, ServerInfo, ServerRole, ServerEmoji, UserInfo, Help, Npm, Afk, Dbd, Sepia,**')
- .addField("⚠ Moderation", '**ModLog, Report, Clear, AutoRole, Prefix, Ban, Kick, Mute, Unmute,**')
+ .addField("⚠ Moderation", '**ModLog, Report, Clear, AutoRole, Prefix, Ban, Kick, Warn, Mute, Unmute,**')
  .addField("🎵 Music", '**Play, Queue, Stop, Skip, Np, Loop, Volume, Pause, Resume,**')
  .addField("🏁 Fun", '**Cat, Dog, Achievement, Slots, 8Ball,**')
  .addField("🔞 NSFW", '**Hentai, NewdNeko,**')
