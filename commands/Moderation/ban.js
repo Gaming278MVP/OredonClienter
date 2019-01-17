@@ -37,4 +37,13 @@ if (channelmark == true) {
   return msg.channel.send("You do not set modlog channel you must set it!")
 }
 };
+
+exports.conf = {
+  aliases: [],
+  cooldown: '5'
+}
+
+exports.help = {
+  name: "ban"
+}
 // Let's test it out!
