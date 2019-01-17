@@ -12,5 +12,10 @@ exports.run = (client, msg ,args) => {
 }
 
 exports.conf = {
-   aliases: []
+    aliases: [],
+    cooldowns: '5'
+}
+
+exports.help = {
+  name: "loop"
 }
