@@ -1,6 +1,6 @@
 const { ShardingManager } = require('discord.js');
 const Discord = require("discord.js");
-const { owners_id } = require("../../config.json");
+const { owners_id } = require("../config.json");
 const moment = require("moment-timezone");
 const db = require('quick.db')
 const ms = require("ms");
