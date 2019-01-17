@@ -16,3 +16,12 @@ exports.run = async(client, message, args) => {
   
   message.channel.send(`Prefix has been set to ${args[0]}`);
 }
+
+exports.conf = {
+    aliases: [],
+    cooldowns: '5'
+}
+
+exports.help = {
+  name: "prefix"
+}
