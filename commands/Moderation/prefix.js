@@ -10,7 +10,7 @@ exports.run = async(client, message, args) => {
     prefix: args[0]
   }
   
-  fs.writeFile("./oredon.json", JSON.stringify(oredon), (err) => {
+  fs.writeFile("../../oredon.json", JSON.stringify(oredon), (err) => {
      if(err) console.log(err);
   })
   
