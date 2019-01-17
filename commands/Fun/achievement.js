@@ -18,6 +18,11 @@ exports.run = (client, msg, args) => {
 
 };
 
-module.exports.help = {
+exports.conf = {
+  aliases: [],
+  cooldowns: '5'
+};
+
+exports.help = {
   name: 'achievement'
 }; 
