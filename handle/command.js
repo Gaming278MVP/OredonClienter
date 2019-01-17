@@ -42,6 +42,6 @@ module.exports = async (client, message) => {
   } catch (e) {
       console.error(e)
   } finally {
-  console.info(`${message.author.tag}[${message.author.id}] is using ${message.content.split(" ")[0].replace(prefix, '')} command on ${message.guild.name}[${message.guild.id}]`);
+  console.info(`${message.author.tag}[${message.author.id}] is using ${cmd} command on ${message.guild.name}[${message.guild.id}]`);
   }
 }

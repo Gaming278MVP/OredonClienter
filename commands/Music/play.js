@@ -20,7 +20,7 @@ exports.run = async (bot, msg, args) => {
 	const serverQueue = queue.get(msg.guild.id);
   
 		const voiceChannel = msg.member.voiceChannel;
-		if (!voiceChannel) return msg.channel.send('I\'m sorry but you need to be in a voice channel to play music!');
+		if (!voiceChannel) return msg.channel.send('<:WrongMark:524375774741135362> I\'m sorry but you need to be in a voice channel to play music!');
     if (!args[0]) return msg.channel.send(`Please following the code! : ${oredon[msg.guild.id].prefix}play **[Song Name/URL/Playlist URL]**`)
 		const permissions = voiceChannel.permissionsFor(msg.client.user);
 		if (!permissions.has('CONNECT')) {

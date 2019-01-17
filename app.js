@@ -1,6 +1,9 @@
+// Require Packages!
 const { ShardingManager } = require('discord.js');
+const OredonClient = require("./handle/OredonClient");
 const moment = require("moment-timezone");
 const Discord = require("discord.js");
+const cooldownAns = require('./handle/cooldownAns.json');
 const { Client, Util, RichEmbed, Collection } = require("discord.js");
 const cooldowns = new Collection();
 const client = new Client({
@@ -8,6 +11,7 @@ const client = new Client({
 ],
   disableEveryone: true
 })
+
 const DBL = require("dblapi.js");
 const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUxOTMzMDQxODY0MjkxMTIzNyIsImJvdCI6dHJ1ZSwiaWF0IjoxNTQ1MTg4Mzk4fQ.uYriOBoJNFgitrVf9edd6_P-xME1bBSlSD19PHBBWsQ', client);
 const YouTube = require("simple-youtube-api");
@@ -18,13 +22,23 @@ const db = require("quick.db");
 const tools = require("./functions.js");
 const ytdl = require('ytdl-core');
 
-client.snek = require('node-superfetch')
-client.commands = fs.readdirSync('./commands');
-client.aliases = {};
+client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
 
-client.memory = new db.table("oredonmodlog")
+client.snek = require('node-superfetch')
+//client.commands = fs.readdirSync('./commands');
+//client.aliases = {};
+
+client.memory = new db.table("oredonmodlog");
 
 const youtube = new YouTube(process.env.YOUTUBE);
+
+// Event Handler
+    const events = fs.readdirSync('events/');
+    for (let event of events) {
+        let file = require(`./events/${event}`);
+        client.on(event.split('.')[0], (...args) => file(client, ...args));
+    }
 
 for(const cmd of client.commands){
 const file = require(`./commands/${cmd}`);
@@ -45,15 +59,12 @@ if(!file.conf || !file.conf.aliases) continue;
 }
 
 require("./server.js");
+//require("./handle/module")(client);
 
 const queue = new Collection();
 client.queue = queue;
 
-function changing_status() {
-  let status = [`Oredon Clienter | o!help`, `With ${client.users.size.toLocaleString()} users`, `With ${client.guilds.size.toLocaleString()} servers`, `With ${client.channels.size.toLocaleString()} channels`, `Launched Shard #${client.shard.id}`, `At ${moment().tz("Asia/Jayapura").format('LT')} WIT`]
-  let random = status[Math.floor(Math.random() * status.length)]
-  client.user.setActivity(random, {type: "STREAMING", url: 'https://www.twitch.tv/users'});
-}
+// End of code Require Packages
 
 
 dbl.on('posted', () => {
@@ -63,11 +74,6 @@ dbl.on('posted', () => {
 dbl.on('error', e => {
  console.log(`Oops! ${e}`);
 })
-
-client.on('ready', () => {
-  console.log('Ready A Function');
-  setInterval(changing_status, 10000);
-});
   
 client.on("guildMemberAdd", async member => {
   let autoRole = await db.fetch(`autorole_${member.guild.id}`).catch(err => console.log(err));
@@ -79,13 +85,16 @@ client.on('message', async (message) => { // eslint-disable-line
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
   
+// Start of code Prefix Json
   let oredon = JSON.parse(fs.readFileSync("./oredon.json", "utf8"));
   if(!oredon[message.guild.id]){
      oredon[message.guild.id] = {
        prefix: config.bot_prefix
      }
   }
+// End of code Prefix Json
   
+// Start of code Mention Bot
   if (message == `<@${client.user.id}>` || message == `<@!${client.user.id}>`) {
     let tagEmbed = new Discord.RichEmbed()
     .setThumbnail(client.user.displayAvatarURL) // ok!
@@ -94,7 +103,9 @@ client.on('message', async (message) => { // eslint-disable-line
     .setDescription(`Global Prefix =  (**o!**) \nPrefix In This Server =  (**${oredon[message.guild.id].prefix}**)`);
     message.channel.send(tagEmbed);
 }
+// End of code Mention Bot
   
+// Start of code Variables
   let prefix = oredon[message.guild.id].prefix;
   if(!message.content.startsWith(prefix)) return;
   var messageArray = message.content.split(" ");
@@ -105,27 +116,11 @@ client.on('message', async (message) => { // eslint-disable-line
   var serverQueue = queue.get(message.guild.id);
   var sender = message.author;
   var cmd = args.shift().toLowerCase();
+// End of code Variables
   
-  try {
-      if(client.aliases[cmd]){
-				delete require.cache[require.resolve(`./commands/${client.aliases[cmd]}`)];
-        require(`./commands/${client.aliases[cmd]}`).run(client, message, args);
+// Start of code CMD Handler 
 
-      }else{
-
-    delete require.cache[require.resolve(`./commands/${cmd}.js`)];
-
-		let commandFile = require(`./commands/${cmd}.js`);
-    commandFile.run(client, message, args);
-
-      }
-
-  } catch (e) {
-    console.log(e.stack)                                                                  
-  } finally {
-   console.log(`${message.author.tag} used ${cmd} in guild ${message.guild.name} (${message.guild.id})`)
-}
-  
+// End of code CMD Handler
 // Music Command
 // ============================================================================================================================================
 });
@@ -159,7 +154,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
 			songs: [],
 			volume: 100,
 			playing: true,
-    loop: false,
+      loop: false,
 		};
 		queue.set(message.guild.id, queueConstruct);
 
@@ -198,7 +193,7 @@ async function handleVideo(video, message, voiceChannel, playlist = false) {
 }
 
 function play(guild, song, message) {
-	const serverQueue = queue.get(guild.id);
+	var serverQueue = queue.get(guild.id);
 
 	if (!song) {
 		serverQueue.voiceChannel.leave();
