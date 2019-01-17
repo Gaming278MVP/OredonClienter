@@ -48,7 +48,7 @@ module.exports = async (client, message) => {
     // command handler
   try {
   let commands = client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd));
-  commands.run(client, message, args, color, prefix);
+  commands.run(client, message, args, prefix);
   if (!commands) return;
   } catch (e) {
       console.error(e)
