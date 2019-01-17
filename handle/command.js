@@ -1,4 +1,5 @@
-const { bot_prefix, embed_color } = require('../config.json');
+const { embed_color } = require('../config.json');
+const config = require('../config.json');
 const { Collection, RichEmbed } = require('discord.js');
 const cooldowns = new Collection();
 const cooldownAns = require('./cooldownAns.json');
@@ -6,9 +7,15 @@ const fs = require('fs');
 const db = require('quick.db');
 
 module.exports = async (client, message) => {
-    let prefix = message.content.startsWith(bot_prefix) ? bot_prefix : `${client.user.toString()} `;
-    let color = embed_color;
-    let args = message.content.slice(prefix.length).trim().split(/ +/g);
+  let oredon = JSON.parse(fs.readFileSync("../../oredon.json", "utf8"));
+  if(!oredon[msg.guild.id]){ 
+      oredon[msg.guild.id] = {
+       prefix: config.bot_prefix
+     }
+}
+	
+    let prefix = oredon[message.guild.id].prefix; 
+    let args = message.content.slice(prefix.length).trim().split(' ');
     let cmd = args.shift().toLowerCase();
     args.missing = argsMissing;
 
