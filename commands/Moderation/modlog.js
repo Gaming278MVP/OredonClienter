@@ -44,6 +44,11 @@ if (!args[0]) {
 }
 // End of code modlog
 
+exports.conf = {
+  aliases: [],
+  cooldowns: '5'
+}
+
 exports.help = {
   name: "modlog",
   description: "send a log from moderation command!"
