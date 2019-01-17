@@ -1,4 +1,4 @@
-const { queue } = require("../app.js")
+const { queue } = require("../../app.js")
 
 // Run's Stop Command
 exports.run = async(client, msg, args) => {
