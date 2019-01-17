@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async(client, message, args) => {
+exports.run = async(client, message, args) => {
   let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!rUser) return message.channel.send("Couldn't find the User!");
   let reason = args.join(" ").slice(22);
@@ -30,6 +30,11 @@ if (channelmark == true) {
 }
 }
 
-module.exports.help = {
+exports.conf = {
+    aliases: [],
+    cooldowns: '5'
+}
+
+exports.help = {
   name: "report"
 }
