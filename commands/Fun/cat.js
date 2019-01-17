@@ -14,6 +14,11 @@ module.exports.run = async(bot, message, args) => {
   message.channel.send(catembed);
 }
 
-module.exports.help = {
+exports.conf = {
+ aliases: [],
+ cooldowns: '5'
+}
+
+exports.help = {
   name: "cat"
 }
