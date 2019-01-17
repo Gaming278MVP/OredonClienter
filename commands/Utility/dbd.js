@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const DiscordBotsDev = require('dbdapi.js');
   
   const DBD = new DiscordBotsDev('MzY2ODYyODMxNjcwMjYzODA4Ok5FeFNEUTBwVkcxUEdHd3VjR3lNalV6b1lMbDE2My9vTjl3aGZSM05oU1k9OnZtOUlZQVl4YnRpZysrTlRoYUtaRDk4K0dJVG1OL0tzdlZNMzN4ejhsRnM9', "519330418642911237", '297130271864520705');
-module.exports.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
   let mnts = message.mentions.users.first()
       if(!mnts.bot === false) return message.channel.send("Hey, Sorry This Is Not A Bot!")
 
@@ -28,6 +28,11 @@ module.exports.run = async (client, message, args) => {
         message.channel.send(embed)
 }
 
-module.exports.help = {
+exports.conf = {
+  aliases: [],
+  cooldowns: '5'
+}
+
+exports.help = {
     name: "dbd"
 }
