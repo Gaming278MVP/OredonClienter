@@ -12,6 +12,11 @@ exports.run = async(client, msg, args) => {
 		return msg.channel.send('⚠ There is nothing playing.');
 	}
 
+exports.conf = {
+    aliases: [],
+    cooldowns: '5'
+}
+
 exports.help = {
   name: "resume"
 }
