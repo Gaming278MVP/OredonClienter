@@ -1,4 +1,4 @@
-const { queue } = require("../../app.js");
+const { queue } = require("../app.js");
 
 exports.run = (client, msg ,args) => {
   const serverQueue = queue.get(msg.guild.id);
