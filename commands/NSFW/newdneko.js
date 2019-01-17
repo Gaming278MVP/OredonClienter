@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const superagent = require("superagent");
 
-module.exports.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
     if (!message.channel.nsfw) return message.channel.send('You can Use This Command In NSFW Channels :lock:')
     superagent.get('https://nekos.life/api/v2/img/lewd')
     .end((err, response) => {
@@ -12,8 +12,13 @@ module.exports.run = async (client, message, args) => {
     });
 
 }
-    
-module.exports.help = {
+   
+exports.conf = {
+  aliases: [],
+  cooldowns: '5'
+}
+
+exports.help = {
     name: "newdneko",
     description: "Mendapatkan random gif",
     usage: "newdneko"
