@@ -54,6 +54,11 @@ exports.run = async (client, message, args, color, prefix) => {
     }
 }
 
+exports.conf = {
+    aliases: ["e"]
+}
+
 exports.help = {
-    name: 'eval'
+    name: 'eval',
+    usage: "Testing a javascript code"
 }
