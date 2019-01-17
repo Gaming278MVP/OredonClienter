@@ -6,7 +6,7 @@ module.exports = client => {
     client.aliases = new Discord.Collection();
     client.helps = new Discord.Collection();
 
-    fs.readdir('./cmds/', (err, categories) => {
+    fs.readdir('./commands/', (err, categories) => {
         if (err) console.log(err);
         console.log(`Menemukan total ${categories.length} kategori.`);
         categories.forEach(category => {
