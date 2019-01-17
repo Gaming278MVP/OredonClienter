@@ -25,6 +25,6 @@ exports.run = (client, message, args) => {
         .addField('Reason:', reason)
         .setTimestamp();
     mentioned.send(warningEmbed); // DMs the user the above embed!
-    message.channel.send('<:scaryrabbit:467816313205686292> :thumbsup: User Successfully Warned!');
+    message.channel.send(':thumbsup: Successfully Warned!');
     message.delete();
 }
