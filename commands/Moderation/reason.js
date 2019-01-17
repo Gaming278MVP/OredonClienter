@@ -49,3 +49,12 @@ if (channelmark == true) {
 };
 
 };
+
+exports.conf = {
+  aliases: [],
+  cooldowns: '5'
+}
+
+exports.help = {
+  name: "reason"
+}
