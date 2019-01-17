@@ -1,12 +1,11 @@
 // Require Packages!
 const { ShardingManager } = require('discord.js');
-const OredonClient = require("./handle/OredonClient");
 const moment = require("moment-timezone");
 const Discord = require("discord.js");
 const cooldownAns = require('./handle/cooldownAns.json');
 const { Client, Util, RichEmbed, Collection } = require("discord.js");
 const cooldowns = new Collection();
-const client = new OredonClient({
+const client = new Client({
   fetchAllMembers: true,
   disabledEvents: ["TYPING_START", "USER_NOTE_UPDATE"],
   disableEveryone: true
@@ -121,21 +120,21 @@ client.on('message', async (message) => { // eslint-disable-line
   try {
       if(client.aliases[cmd]){
 				delete require.cache[require.resolve(`./commands/${client.aliases[cmd]}`)];
-        require(`./commands/${client.aliases[cmd]}`).run(client, msg, args);
+        require(`./commands/${client.aliases[cmd]}`).run(client, message, args);
 
       }else{
 
     delete require.cache[require.resolve(`./commands/${cmd}.js`)];
 
 		let commandFile = require(`./commands/${cmd}.js`);
-    commandFile.run(client, msg, args, func);
+    commandFile.run(client, message, args);
 
       }
 
   } catch (e) {
     console.log(e.stack)                                                                  
   } finally {
-   console.log(`${msg.author.tag} used ${cmd} in guild ${msg.guild.name} (${msg.guild.id})`)
+   console.log(`${message.author.tag} used ${cmd} in guild ${message.guild.name} (${message.guild.id})`)
 }
 // End of code CMD Handler
 // Music Command
