@@ -8,8 +8,8 @@ const db = require('quick.db');
 
 module.exports = async (client, message) => {
   let oredon = JSON.parse(fs.readFileSync("../../oredon.json", "utf8"));
-  if(!oredon[msg.guild.id]){ 
-      oredon[msg.guild.id] = {
+  if(!oredon[message.guild.id]){ 
+      oredon[message.guild.id] = {
        prefix: config.bot_prefix
      }
 }
