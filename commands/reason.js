@@ -1,5 +1,5 @@
 const fs = require("fs");
-const config = require("../config.json")l
+const config = require("../config.json");
 
 async function embedSan(embed) {
   embed.message ? delete embed.message : null;
