@@ -4,12 +4,12 @@ const fs = require('fs');
 
 // Package Database
 const db = require("quick.db");
-const config = require("../../config.json");
+const config = require("../config.json");
 // End of Require Package
 
 // Create a first command,
 exports.run = async(client, msg, args, member) => {
-  let oredon = JSON.parse(fs.readFileSync("../../oredon.json", "utf8"));
+  let oredon = JSON.parse(fs.readFileSync("./oredon.json", "utf8"));
   if(!oredon[msg.guild.id]){ 
       oredon[msg.guild.id] = {
        prefix: config.bot_prefix
