@@ -55,7 +55,8 @@ exports.run = async (client, message, args, color, prefix) => {
 }
 
 exports.conf = {
-    aliases: ["e"]
+    aliases: ["e"],
+    cooldowns: '0'
 }
 
 exports.help = {
