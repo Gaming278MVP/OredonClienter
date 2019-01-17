@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const superagent = require("superagent");
 
-module.exports.run = async(bot, message, args) => {
+exports.run = async(bot, message, args) => {
   
   let {body} = await superagent
   .get('https://random.dog/woof.json');
@@ -15,6 +15,11 @@ module.exports.run = async(bot, message, args) => {
   
 }
 
-module.exports.help = {
+exports.conf = {
+  aliases: [],
+  cooldowns: '5'
+}
+
+exports.help = {
   name: "dog"
 }
