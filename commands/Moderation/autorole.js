@@ -1,6 +1,6 @@
 const db = require("quick.db"); // npm i quick.db
 
-module.exports.run = (client, message, args) => {
+exports.run = (client, message, args) => {
   let roles = message.mentions.roles.first();
   
   if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send({ embed: { color: 0xFF0000, description: 'You do not have permissions!'}});
@@ -11,6 +11,11 @@ module.exports.run = (client, message, args) => {
   })
 }
 
-module.exports.help = {
+exports.conf = {
+  aliases: [],
+  cooldowns: '5'
+}
+
+exports.help = {
   name: "autorole"
 }
