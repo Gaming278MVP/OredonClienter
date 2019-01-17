@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const db = require('quick.db');
 
-module.exports.run = async (client, message, args, tools) => {
+exports.run = async (client, message, args, tools) => {
 
   const status = new db.table('AFKs');
   
@@ -24,6 +24,11 @@ const embed = new Discord.RichEmbed()
   message.channel.send(embed);
 }
 
-module.exports.help = {
+exports.conf = {
+  aliases: [],
+  cooldowns: '5'
+}
+
+exports.help = {
   name:"afk"
 }
