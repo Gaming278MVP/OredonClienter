@@ -1,14 +1,14 @@
 const ytdl = require("ytdl-core");
 const YouTube = require("simple-youtube-api");
 const fs = require("fs");
-const { handleVideo, queue } = require("../app.js")
+const { handleVideo, queue } = require("../../app.js")
 const { Util, RichEmbed } = require("discord.js");
 const Discord = require('discord.js')
-const config = require('.././config.json'); // 
+const config = require('../../config.json'); // 
 const youtube = new YouTube(process.env.YOUTUBE);
   
 exports.run = async (bot, msg, args) => {
-  let oredon = JSON.parse(fs.readFileSync(".././oredon.json", "utf8"));
+  let oredon = JSON.parse(fs.readFileSync("../../oredon.json", "utf8"));
   if(!oredon[msg.guild.id]){ 
      oredon[msg.guild.id] = {
        prefix: config.bot_prefix
