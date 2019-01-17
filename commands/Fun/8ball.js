@@ -1,10 +1,4 @@
-module.exports.help = {
-    name: "8ball",
-    "category": "fun",
-    description: "Katakan pada 8 Ball yang hebat tentang keberuntunganmu.",
-    usage: '8ball'
-}
-module.exports.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
     let wishes = args.slice(0).join("");
     let author = message.author.username;
     /**
@@ -48,4 +42,15 @@ module.exports.run = async (client, message, args) => {
         return `\:8ball\: | ${ballRef[randomize]} \*\*${author}\*\*`
     }
     message.channel.send(get8ball(wishes, author));
+}
+
+exports.conf = {
+    aliases: [],
+    cooldowns: '5'
+}
+
+exports.help = {
+    name: "8ball",
+    description: "Katakan pada 8 Ball yang hebat tentang keberuntunganmu.",
+    usage: '8ball'
 }
