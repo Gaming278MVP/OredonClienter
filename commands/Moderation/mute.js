@@ -38,7 +38,12 @@ module.exports.run = async (client, msg, args) => {
   
   return;
 }
+
+exports.conf = {
+    aliases: [],
+    cooldowns: '5'
+}
   
-module.exports.help = {
+exports.help = {
     name: "mute"
 }
