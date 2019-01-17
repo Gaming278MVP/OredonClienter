@@ -13,4 +13,13 @@ exports.run = (client, message, args) => {
   .setImage(aTaged.displayAvatarURL)
   message.channel.send(embed);
 }
+
+exports.conf = {
+  aliases: [],
+  cooldowns: '5'
+}
+
+exports.help = {
+  name: "avatar"
+}
 // Let's test it out!
