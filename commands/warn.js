@@ -1,4 +1,6 @@
 const Discord = require('discord.js');
+const fs = require("fs");
+
 exports.run = (client, message, args) => {
   let oredon = JSON.parse(fs.readFileSync("./oredon.json", "utf8"));
   if(!oredon[message.guild.id]){
