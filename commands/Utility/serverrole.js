@@ -51,7 +51,7 @@ function chunk(array, chunkSize) {
   
 exports.conf = {
   aliases: ["srl"],
-  cooldown: 10
+  cooldown: 5
 }
 
 exports.help = {
