@@ -16,8 +16,11 @@ async function Sepia (client, msg, args){
 	}
 }
 
-this.help = {
-	name: 'sepia'
+exports.conf = {
+  aliases: [],
+  cooldowns: '5'
 }
 
-this.run = Sepia;
+exports.help = {
+	name: 'sepia'
+}
