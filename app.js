@@ -25,7 +25,7 @@ const ytdl = require('ytdl-core');
 //client.commands = new Discord.Collection();
 //client.aliases = new Discord.Collection();
 
-//client.snek = require('node-superfetch')
+client.snek = require('node-superfetch')
 //client.commands = fs.readdirSync('./commands');
 //client.aliases = {};
 
@@ -40,23 +40,23 @@ const youtube = new YouTube(process.env.YOUTUBE);
         client.on(event.split('.')[0], (...args) => file(client, ...args));
     }
 
-for(const cmd of client.commands){
-const file = require(`./commands/${cmd}`);
-if(!file.conf || !file.conf.aliases) continue;
-if(file.conf.aliases instanceof Array){
-for(const al of file.conf.aliases){
-client.aliases[al] = cmd;
-    }
-  }else{
-client.aliases[file.conf.aliases] = cmd;
-}
-}
+//for(const cmd of client.commands){
+//const file = require(`./commands/${cmd}`);
+//if(!file.conf || !file.conf.aliases) continue;
+//if(file.conf.aliases instanceof Array){
+//for(const al of file.conf.aliases){
+//client.aliases[al] = cmd;
+//    }
+//  }else{
+//client.aliases[file.conf.aliases] = cmd;
+//}
+//}
 
-for(const cmd of client.commands){
-const file = require(`./commands/${cmd}`);
-if(!file.conf || !file.conf.aliases) continue;
+//for(const cmd of client.commands){
+//const file = require(`./commands/${cmd}`);
+//if(!file.conf || !file.conf.aliases) continue;
   
-}
+//}
 
 require("./handle/module")(client);
 
