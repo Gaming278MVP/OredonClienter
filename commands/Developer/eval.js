@@ -20,7 +20,7 @@ const youtube = require("simple-youtube-api");
 
 const warningTokenMessage = ["Will you be my lover?", "What Do You Mean With My Token?", "Kepo cok", "Kamu Gay", "bapak kau jual ganja di BMKG"]
 
-module.exports.run = async (client, message, args, color, prefix) => {
+exports.run = async (client, message, args, color, prefix) => {
     if(message.author.id !== "297130271864520705") return message.channel.send("You cannot use this command because, you are not a developer.")
   
     var serverQueue = client.queue.get(message.guild.id);
@@ -54,6 +54,6 @@ module.exports.run = async (client, message, args, color, prefix) => {
     }
 }
 
-module.exports.help = {
+exports.help = {
     name: 'eval'
 }
