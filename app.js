@@ -59,7 +59,7 @@ if(!file.conf || !file.conf.aliases) continue;
 }
 
 require("./server.js");
-//require("./handle/module")(client);
+require("./handle/module")(client);
 
 const queue = new Collection();
 client.queue = queue;
