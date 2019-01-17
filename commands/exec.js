@@ -24,3 +24,5 @@ exports.help = {
   name: 'exec',
   usage: 'exec <command>'
 }
+
+exports.run = execute;
