@@ -1,4 +1,4 @@
-const { bot_prefix, embed_color } = require('../../config.json');
+const { bot_prefix, embed_color } = require('../config.json');
 const { Collection } = require('discord.js');
 const { RichEmbed } = require('discord.js');
 const cooldowns = new Collection();
@@ -37,11 +37,11 @@ module.exports = async (client, message) => {
     // command handler
   try {
   let commands = client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd));
-  commands.run(client, message, args, color);
+  commands.run(client, message, args);
   if (!commands) return;
   } catch (e) {
       console.error(e)
   } finally {
-  console.info(`${message.author.tag}[${message.author.id}] is using ${cmd} command on ${message.guild.name}[${message.guild.id}]`);
+  console.log(`${message.author.tag}[${message.author.id}] is using ${cmd} command on ${message.guild.name}[${message.guild.id}]`);
   }
 }
