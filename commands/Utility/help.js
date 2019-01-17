@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
 const fs = require("fs");
-const config = require("../../config.json");
+const config = require("../config.json");
 
 exports.run = (client, message, args) => {
-  let oredon = JSON.parse(fs.readFileSync("../../oredon.json", "utf8"));
+  let oredon = JSON.parse(fs.readFileSync("./oredon.json", "utf8"));
   if(!oredon[message.guild.id]){
      oredon[message.guild.id] = {
        prefix: config.bot_prefix
