@@ -15,8 +15,11 @@ module.exports = async (client, message) => {
 }
 	
     let prefix = oredon[message.guild.id].prefix; 
-    let args = message.content.slice(prefix.length).trim().split(' ');
-    let cmd = args.shift().toLowerCase();
+    if(!message.content.startsWith(prefix)) return;
+    var messageArray = message.content.split(" ");
+    var args = message.content.slice(prefix.length).trim().split(' ');
+    var sender = message.author;
+    var cmd = args.shift().toLowerCase();
     args.missing = argsMissing;
 
     // cooldowns command
@@ -48,12 +51,12 @@ module.exports = async (client, message) => {
     // command handler
   try {
   let commands = client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd));
-  commands.run(client, message, args, prefix);
+  commands.run(client, message, args);
   if (!commands) return;
   } catch (e) {
-      console.error(e)
+      console.log(e.stack);
   } finally {
-  console.info(`${message.author.tag}[${message.author.id}] is using ${message.content.split(" ")[0].replace(prefix, '')} command on shard ﹙${client.shard.id}﹚ ${message.guild.name}[${message.guild.id}]`);
+  console.log(`${message.author.tag}[${message.author.id}] is using ${cmd} command on shard ﹙${client.shard.id}﹚ ${message.guild.name}[${message.guild.id}]`);
   db.add('commandUsage', 1);
   }
 } 
