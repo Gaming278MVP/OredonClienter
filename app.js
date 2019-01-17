@@ -6,11 +6,11 @@ const Discord = require("discord.js");
 const cooldownAns = require('./handle/cooldownAns.json');
 const { Client, Util, RichEmbed, Collection } = require("discord.js");
 const cooldowns = new Collection();
-const client = new Client({
-    disableEvents: [
-],
+const client = new OredonClient({
+  fetchAllMembers: true,
+  disabledEvents: ["TYPING_START", "USER_NOTE_UPDATE"],
   disableEveryone: true
-})
+});
 
 const DBL = require("dblapi.js");
 const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUxOTMzMDQxODY0MjkxMTIzNyIsImJvdCI6dHJ1ZSwiaWF0IjoxNTQ1MTg4Mzk4fQ.uYriOBoJNFgitrVf9edd6_P-xME1bBSlSD19PHBBWsQ', client);
