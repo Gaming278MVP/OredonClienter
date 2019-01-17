@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const snek = require('snekfetch');
 const moment = require('moment');
 require('moment-duration-format');
-module.exports.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
 
 if (args.length === 0) return message.reply('You must supply a search term.');
 const query = args.join(' ');
@@ -63,6 +63,12 @@ console.log(error);
 }  
 
 }
-module.exports.help = {
+
+exports.conf = {
+  aliases: [],
+  cooldowns: '5'
+}
+
+exports.help = {
 name: "npm"
 }
