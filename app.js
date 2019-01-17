@@ -22,12 +22,12 @@ const db = require("quick.db");
 const tools = require("./functions.js");
 const ytdl = require('ytdl-core');
 
-client.commands = new Discord.Collection();
-client.aliases = new Discord.Collection();
+//client.commands = new Discord.Collection();
+//client.aliases = new Discord.Collection();
 
 client.snek = require('node-superfetch')
-//client.commands = fs.readdirSync('./commands');
-//client.aliases = {};
+client.commands = fs.readdirSync('./commands');
+client.aliases = {};
 
 client.memory = new db.table("oredonmodlog");
 
@@ -58,7 +58,7 @@ if(!file.conf || !file.conf.aliases) continue;
   
 }
 
-require("./handle/module")(client);
+//require("./handle/module")(client);
 
 const queue = new Collection();
 client.queue = queue;
@@ -118,7 +118,25 @@ client.on('message', async (message) => { // eslint-disable-line
 // End of code Variables
   
 // Start of code CMD Handler 
+  try {
+      if(client.aliases[cmd]){
+				delete require.cache[require.resolve(`./commands/${client.aliases[cmd]}`)];
+        require(`./commands/${client.aliases[cmd]}`).run(client, msg, args);
 
+      }else{
+
+    delete require.cache[require.resolve(`./commands/${cmd}.js`)];
+
+		let commandFile = require(`./commands/${cmd}.js`);
+    commandFile.run(client, msg, args, func);
+
+      }
+
+  } catch (e) {
+    console.log(e.stack)                                                                  
+  } finally {
+   console.log(`${msg.author.tag} used ${cmd} in guild ${msg.guild.name} (${msg.guild.id})`)
+}
 // End of code CMD Handler
 // Music Command
 // ============================================================================================================================================
