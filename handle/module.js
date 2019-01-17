@@ -15,8 +15,8 @@ module.exports = client => {
             moduleConf.cmds = [];
             client.helps.set(category, moduleConf);
             if (!moduleConf) return;
-            fs.readdir(`./src/commands/${category}`, (err, files) => {
-                console.log(`Menemukan total ${files.length} perintah dari ${category}.`)
+            fs.readdir(`./commands/${category}`, (err, files) => {
+                console.log(`Menemukan total ${files.length - 1} perintah dari ${category}.`)
                 if (err) console.log(err);
                 let commands = new Array();
                 files.forEach(file => {
