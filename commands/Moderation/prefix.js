@@ -5,7 +5,7 @@ exports.run = async(client, message, args) => {
   if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("You don't have permissions to set prefix!");
   if(!args[0]) return message.channel.send("Please specify a prefix!");
   
-  let oredon = JSON.parse(fs.readFileSync("../oredon.json", "utf8"));
+  let oredon = JSON.parse(fs.readFileSync(".././oredon.json", "utf8"));
   oredon[message.guild.id] = {
     prefix: args[0]
   }
