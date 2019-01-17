@@ -25,3 +25,12 @@ exports.run = (client, msg, args) => {
 • Arch       :: x64
 `, {code: 'AsciiDoc'})
 }//
+
+exports.conf = {
+  aliases: [],
+  cooldowns: '5'
+}
+
+exports.help = {
+  name: "botinfo"
+}
