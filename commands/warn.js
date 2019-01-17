@@ -19,7 +19,7 @@ exports.run = (client, message, args) => {
     let mentioned = message.mentions.users.first(); // Gets the user mentioned!
     if(!mentioned) return message.channel.send(missingArgsEmbed); // Triggers if the user donsn't tag a user in the message
     let reason = args.slice(1).join(' ') // .slice(1) removes the user mention, .join(' ') joins all the words in the message, instead of just sending 1 word
-    if(!reason) return message.channe.send(missingArgsEmbed); // Triggers if the user dosn't provide a reason for the warning
+    if(!reason) return message.channel.send(missingArgsEmbed); // Triggers if the user dosn't provide a reason for the warning
 
     var warningEmbed = new Discord.RichEmbed() // Creates the embed that's DM'ed to the user when their warned!
         .setColor(embedColor)
