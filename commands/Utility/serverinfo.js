@@ -56,7 +56,7 @@ const servico =
     'us-west' : ':flag_us: US West',
     'eu-west' : ':flag_eu: Western Europe'
 }
-module.exports.run = (client, message, args) => {
+exports.run = (client, message, args) => {
   let embed = new Discord.RichEmbed()
   .setAuthor(`${message.guild.name}`, `${message.guild.iconURL ? message.guild.iconURL : ""}`)
   .setDescription('Here is the server information: ')
@@ -75,6 +75,11 @@ module.exports.run = (client, message, args) => {
   message.channel.sendMessage(embed)
 }
 
-module.exports.help = {
+exports.conf = {
+  aliases: [],
+  cooldowns: '5'
+}
+
+exports.help = {
   name: "serverinfo"
 }
