@@ -63,7 +63,8 @@ exports.run = async(client, message, args) => {
 }
 
 exports.conf = {
-   aliases: ['ui']
+   aliases: ['ui'],
+   cooldowns: '5'
 }
 
 exports.help = {
