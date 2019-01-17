@@ -1,4 +1,4 @@
-module.exports.run = async (client, msg, args) => {
+exports.run = async (client, msg, args) => {
     if (!msg.member.hasPermission("MUTE_MEMBERS")) return msg.channel.send({ embed: { color: 0xFF0000, description: 'You do not have permissions!'}});
 
     let toMute = msg.guild.member(msg.mentions.users.first()) || msg.guild.members.get(args[0]);
@@ -14,6 +14,11 @@ module.exports.run = async (client, msg, args) => {
     return;
 }
 
-module.exports.help = {
+exports.conf = {
+    aliases: [],
+    cooldowns: '5'
+}
+
+exports.help = {
     name: "unmute"
 }
