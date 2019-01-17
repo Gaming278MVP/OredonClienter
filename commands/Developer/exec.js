@@ -15,6 +15,10 @@ async function execute (client, msg, args){
 	}
 }
 
+exports.conf = {
+  aliases: "execute"
+}
+
 exports.help = {
   name: 'exec',
   usage: 'exec <command>'
