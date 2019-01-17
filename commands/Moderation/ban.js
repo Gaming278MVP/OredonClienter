@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const errors = require("../../utils/errors.js");
+const errors = require("../utils/errors.js");
 const db = require("quick.db");
 
 exports.run = async(client, msg, args) => {
