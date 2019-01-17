@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const errors = require("../utils/errors.js");
+const errors = require("../../utils/errors.js");
 const db = require("quick.db");
 
 exports.run = async(client, msg, args) => {
@@ -37,4 +37,13 @@ if (channelmark == true) {
   return msg.channel.send("You do not set modlog channel you must set it!")
 }
 };
+
+exports.conf = {
+  aliases: [],
+  cooldowns: '5'
+}
+
+exports.help = {
+  name: "kick"
+}
 // Let's test it out!
