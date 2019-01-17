@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const errors = require("../../utils/errors.js");
 
-module.exports.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
 
   message.delete()
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply(":lock: **You Don't Have Permissions MANAGE_MESSAGES :lock:**");
@@ -12,6 +12,11 @@ module.exports.run = async (client, message, args) => {
 
 }
 
-module.exports.help = {
+exports.conf = {
+  aliases: [],
+  cooldowns: '5'
+}
+
+exports.help = {
   name: "clear"
 }
