@@ -1,6 +1,6 @@
 const slots = ['🍇', '🍊', '🍐', '🍒', '🍋'];
 
-module.exports.run = async(client, msg, args) => {
+exports.run = async(client, msg, args) => {
     const slotOne = slots[Math.floor(Math.random() * slots.length)];
     const slotTwo = slots[Math.floor(Math.random() * slots.length)];
     const slotThree = slots[Math.floor(Math.random() * slots.length)];
