@@ -40,7 +40,28 @@ exports.run = async (client, message, args, color, prefix) => {
         } else {
           code = eval(code);
         }
-      
+        
+        if (codein.includes(`t,o,k,e,n`)) {
+          code = warningTokenMessage[Math.floor(Math.random() * warningTokenMessage.length)];
+          console.log(`${message.author.tag} use this eval to againts the toknes privacy.`)
+        } else {
+          code = eval(code);
+        }
+   
+        if (codein.includes(`process.env`)) {
+          code = warningTokenMessage[Math.floor(Math.random() * warningTokenMessage.length)];
+          console.log(`${message.author.tag} use this eval to againts the toknes privacy.`)
+        } else {
+          code = eval(code);
+        }
+        
+        if (codein.includes(`process.env.BOT_TOKEN`)) {
+          code = warningTokenMessage[Math.floor(Math.random() * warningTokenMessage.length)];
+          console.log(`${message.author.tag} use this eval to againts the toknes privacy.`)
+        } else {
+          code = eval(code);
+        }
+        
         if (typeof code !== 'string')
             code = require('util').inspect(code, { depth: 0 });
         let embed = new Discord.RichEmbed()
