@@ -2056,7 +2056,7 @@ specifiers:
   parse-ms: ^2.0.0
   path: ^0.12.7
   platform: ^1.3.5
-  quick.db: ^6.3.2
+  quick.db: ^7.0.0-b20
   quick.hook: ^1.5.1
   simple-youtube-api: ^5.1.1
   snekfetch: ^4.0.4
