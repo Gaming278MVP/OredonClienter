@@ -4,8 +4,8 @@ exports.run = async(client, message, args) => {
   let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!rUser) return message.channel.send("Couldn't find the User!");
   let reason = args.join(" ").slice(22);
-  let channeltarget = await client.memory.get(`ModLog.${message.guild.id}.channel`)
-  let channelmark = await client.memory.get(`ModLog.${message.guild.id}.on`)
+  let channeltarget = await client.memory.fetch(`ModLog.${message.guild.id}.channel`)
+  let channelmark = await client.memory.fetch(`ModLog.${message.guild.id}.on`)
   
   let reportEmbed = new Discord.RichEmbed()
   .setColor('RANDOM')
