@@ -20,10 +20,10 @@ const youtube = require("simple-youtube-api");
 
 const warningTokenMessage = ["Will you be my lover?", "What Do You Mean With My Token?", "Kepo cok", "Kamu Gay", "bapak kau jual ganja di BMKG"]
 
-exports.run = async (client, message, args, color, prefix) => {
-    if(message.author.id !== "297130271864520705") return message.channel.send("You cannot use this command because, you are not a developer.")
+exports.run = async (client, msg, args, color, prefix) => {
+    if(msg.author.id !== "297130271864520705") return msg.channel.send("You cannot use this command because, you are not a developer.")
   
-    var serverQueue = client.queue.get(message.guild.id);
+    var serverQueue = client.queue.get(msg.guild.id);
 
     try {
       
@@ -36,28 +36,28 @@ exports.run = async (client, message, args, color, prefix) => {
 
         if (codein.includes(`token`)) {
           code = warningTokenMessage[Math.floor(Math.random() * warningTokenMessage.length)];
-          console.log(`${message.author.tag} use this eval to against the tokens and privacy.`)
+          console.log(`${msg.author.tag} use this eval to against the tokens and privacy.`)
         } else {
           code = eval(code);
         }
         
         if (codein.includes(`t,o,k,e,n`)) {
           code = warningTokenMessage[Math.floor(Math.random() * warningTokenMessage.length)];
-          console.log(`${message.author.tag} use this eval to againts the toknes privacy.`)
+          console.log(`${msg.author.tag} use this eval to againts the toknes privacy.`)
         } else {
           code = eval(code);
         }
    
         if (codein.includes(`process.env`)) {
           code = warningTokenMessage[Math.floor(Math.random() * warningTokenMessage.length)];
-          console.log(`${message.author.tag} use this eval to againts the toknes privacy.`)
+          console.log(`${msg.author.tag} use this eval to againts the toknes privacy.`)
         } else {
           code = eval(code);
         }
         
         if (codein.includes(`process.env.BOT_TOKEN`)) {
           code = warningTokenMessage[Math.floor(Math.random() * warningTokenMessage.length)];
-          console.log(`${message.author.tag} use this eval to againts the toknes privacy.`)
+          console.log(`${msg.author.tag} use this eval to againts the toknes privacy.`)
         } else {
           code = eval(code);
         }
@@ -69,9 +69,9 @@ exports.run = async (client, message, args, color, prefix) => {
         .setColor('RANDOM')
         .addField(':inbox_tray: Input', `\`\`\`js\n${codein}\`\`\``)
         .addField(':outbox_tray: Output', `\`\`\`js\n${code}\n\`\`\``)
-        message.channel.send(embed)
+        msg.channel.send(embed)
     } catch(e) {
-        message.channel.send(`\`\`\`js\n${e}\n\`\`\``)
+        msg.channel.send(`\`\`\`js\n${e}\n\`\`\``)
     }
 }
 
