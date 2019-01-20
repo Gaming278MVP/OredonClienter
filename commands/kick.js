@@ -6,8 +6,8 @@ exports.run = async(client, msg, args) => {
   
   let kickTaged = msg.guild.member(msg.mentions.users.first() || msg.guild.members.get(args[0]));
   let reason = args.slice(1).join(' ');
-  let channeltarget = await client.memory.fetch(`ModLog.${msg.guild.id}.channel`)
-  let channelmark = await client.memory.fetch(`ModLog.${msg.guild.id}.on`)
+  let channeltarget = await client.memory.get(`ModLog.${msg.guild.id}.channel`)
+  let channelmark = await client.memory.get(`ModLog.${msg.guild.id}.on`)
   
   if (!channeltarget) return msg.channel.send("Please You must set modlog channel!");
   if (!channelmark) return msg.channel.send("Please turn on modlog!");
