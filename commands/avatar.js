@@ -1,5 +1,7 @@
+// Require Packages of Data.
 const Discord = require("discord.js");
 
+// Exports of to runnings.
 exports.run = (client, message, args) => {
   let aTaged;
   if (message.mentions.users.first()) {
@@ -14,11 +16,13 @@ exports.run = (client, message, args) => {
   message.channel.send(embed);
 }
 
+// Exports of to configure.
 exports.conf = {
   aliases: [],
   cooldowns: '5'
 }
 
+// Exports of to helping.
 exports.help = {
   name: "avatar"
 }
