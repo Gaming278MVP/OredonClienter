@@ -27,17 +27,17 @@ if (!args[0]) {
   msg.channel.send(embed); // Test dulu yah!
 
   } else if(args[0] == 'on') { // Mod log Enable/ !modlog on
-     client.memory.fetch(`ModLog.${msg.guild.id}.on`, true)
+     client.memory.set(`ModLog.${msg.guild.id}.on`, true)
      msg.channel.send(`<:toggleon:534669824811466762> Modlog has been enabled!`);
   } else if(args[0] == 'off') {
-     client.memory.fetch(`ModLog.${msg.guild.id}.on`, false)
+     client.memory.set(`ModLog.${msg.guild.id}.on`, false)
      msg.channel.send(`<:toggleoff:534669799695843337> Modlog has been disabled!`);
   } else if(args[0] == 'channel') {
     var channel = msg.mentions.channels.first();
     
     if(!channel) return msg.channel.send("Please specify a mention channels!")
     
-     client.memory.fetch(`ModLog.${msg.guild.id}.channel`, channel.id).then(ModLog => {
+     client.memory.set(`ModLog.${msg.guild.id}.channel`, channel.id).then(ModLog => {
         msg.channel.send(`Succesfully Set Modlog To <#${ModLog}>`) 
     })
   }                                                                     
