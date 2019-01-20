@@ -20,8 +20,8 @@ exports.run = async(client, msg, args) => {
      }
   }
   
-  let channeltarget = await client.memory.get(`ModLog.${msg.guild.id}.channel`)
-  let channelmark = await client.memory.get(`ModLog.${msg.guild.id}.on`)
+  let channeltarget = await client.memory.fetch(`ModLog.${msg.guild.id}.channel`)
+  let channelmark = await client.memory.fetch(`ModLog.${msg.guild.id}.on`)
   
   if (!channeltarget) return msg.channel.send("Please You must set modlog channel!");
   if (!channelmark) return msg.channel.send("Please turn on modlog!");
