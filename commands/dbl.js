@@ -9,5 +9,5 @@ exports.run = async(client, msg, args) => {
   let embed = new Discord.RichEmbed()
   .setAuthor(`Stats of ${dblBots.username}`, '<:discordbotlist:338808864352763904>')
   .setColor('RANDOM')
-  .addField(` \`\`\`${dblBots.shortdesc}\`\`\` \n \n**Monthly Votes:** \n**Total Votes:** ${dblBots.points} \n**Lib:** ${dblBots.lib} \n**Prefix:** ${{dblBots.prefix} \n **Tags:** ${dblBots.tags} **Certified:** ${dblBots.certifiedBot}`)
+  .addField(` \`\`\`${dblBots.shortdesc}\`\`\` \n \n**Monthly Votes:** \n**Total Votes:** ${dblBots.points} \n**Lib:** ${dblBots.lib} \n**Prefix:** ${dblBots.prefix} \n **Tags:** ${dblBots.tags} **Certified:** ${dblBots.certifiedBot}`)
 }
