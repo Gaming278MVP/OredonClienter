@@ -3,7 +3,7 @@ const DBL = require("dblapi.js");
 const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUxOTMzMDQxODY0MjkxMTIzNyIsImJvdCI6dHJ1ZSwiaWF0IjoxNTQ1MTg4Mzk4fQ.uYriOBoJNFgitrVf9edd6_P-xME1bBSlSD19PHBBWsQ');
 
 exports.run = async(client, msg, args) => {
-  let id = msg.mentions.id.first();
+  let id = message.mentions.members.first()
   let dblBots = dbl.getBots(id)
   
   let embed = new Discord.RichEmbed()
