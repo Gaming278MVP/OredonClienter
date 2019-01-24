@@ -5,7 +5,7 @@ const config = require("../config.json")
 const fs = require("fs");
 const colorMaping =
 {
-  "false": "Here is no"
+  "false": "Here is no",
   "true": "Here is yes."
 } 
 
@@ -38,7 +38,7 @@ if (!args[0]) {
   let embed = new Discord.RichEmbed()
   .setAuthor(`Stats of ${dblBots.username}#${dblBots.discriminator}`, dblBots.avatar)
   .setColor('RANDOM')
-  .setDescription(` \`\`\`${dblBots.shortdesc}\`\`\` \n \n**Monthly Votes: ${dblBots.monthlyPoints}** \n**Total Votes:** ${dblBots.points} \n**Lib:** ${dblBots.lib} \n**Prefix:** ${dblBots.prefix} \n **Tags:** ${dblBots.tags} **Certified:** ${dblBots.certifiedBot} \n**Posted Guild Count:** ${dblBots.server_count} \n**Posted Shard Count:** ${dblBots.shards} \n \n[Discord Bot List Page](https://discordbots.org/bot/${dblBots.id})`)
+  .setDescription(` \`\`\`${dblBots.shortdesc}\`\`\` \n \n**Monthly Votes: ${dblBots.monthlyPoints}** \n**Total Votes:** ${dblBots.points} \n**Lib:** ${dblBots.lib} \n**Prefix:** ${dblBots.prefix} \n **Tags:** ${dblBots.tags} **Certified:** ${colorMaping[dblBots.certifiedBot]} \n**Posted Guild Count:** ${dblBots.server_count} \n**Posted Shard Count:** ${dblBots.shards} \n \n[Discord Bot List Page](https://discordbots.org/bot/${dblBots.id})`)
    msg.channel.send(embed);
 
   } else if(args[0] == 'widget') {
