@@ -13,7 +13,7 @@ exports.run = async(client, msg, args) => {
 }
 
 if (!args[0]) {
-  let embed = new RichEmbed()
+  let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
   .setThumbnail(client.user.displayAvatarURL)
   .setTitle("Correct usage is:")
@@ -33,7 +33,7 @@ if (!args[0]) {
   let embed = new Discord.RichEmbed()
   .setAuthor(`Stats of ${dblBots.username}#${dblBots.discriminator}`, '<:discordbotlist:338808864352763904>')
   .setColor('RANDOM')
-  .setDescripition(` \`\`\`${dblBots.shortdesc}\`\`\` \n \n**Monthly Votes:** \n**Total Votes:** ${dblBots.points} \n**Lib:** ${dblBots.lib} \n**Prefix:** ${dblBots.prefix} \n **Tags:** ${dblBots.tags} **Certified:** ${dblBots.certifiedBot} \n \n[Discord Bot List Page](https://discordbots.org/bot/${dblBots.id}) | [Invite](${dblBots.invite}) | [Support Server](${dblBots.support}) | [Github Repository](${dblBots.github}) | [Website](${dblBots.website})`)
+  .setDescription(` \`\`\`${dblBots.shortdesc}\`\`\` \n \n**Monthly Votes:** \n**Total Votes:** ${dblBots.points} \n**Lib:** ${dblBots.lib} \n**Prefix:** ${dblBots.prefix} \n **Tags:** ${dblBots.tags} **Certified:** ${dblBots.certifiedBot} \n \n[Discord Bot List Page](https://discordbots.org/bot/${dblBots.id}) | [Invite](${dblBots.invite}) | [Support Server](${dblBots.support}) | [Github Repository](${dblBots.github}) | [Website](${dblBots.website})`)
    msg.channel.send(embed);
 
   } else if(args[0] == 'widget') {
