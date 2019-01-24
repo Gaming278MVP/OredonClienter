@@ -33,13 +33,14 @@ if (!args[0]) {
         user = msg.author;
 }
   let id = msg.mentions.members.first().user.id;
+  let avatar = msg.mentions.members.first().user.displayAvatarURL;
   let dblBots = await dbl.getBot(id)
   
   let mem = require("util").inspect(dblBots)
  
   let embed = new Discord.RichEmbed()
   .setAuthor(`Stats of ${dblBots.username}#${dblBots.discriminator}`)
-  .setThumbnail(mem.displayAvatarURL)
+  .setThumbnail(avatar.displayAvatarURL)
   .setColor('RANDOM')
   .setDescription(` \`\`\`${dblBots.shortdesc}\`\`\` \n \n**Monthly Votes:** ${dblBots.monthlyPoints} \n**Total Votes:** ${dblBots.points} \n**Lib:** ${dblBots.lib} \n**Prefix:** ${dblBots.prefix} \n**Tags:** ${dblBots.tags.join(', ')} \n**Certified:** ${colorMaping[dblBots.certifiedBot]} \n**Posted Guild Count:** ${dblBots.server_count} \n**Posted Shard Count:** ${dblBots.shard_count} \n \n[Discord Bot List Page](https://discordbots.org/bot/${dblBots.id}) | [Invite](${dblBots.invite}) | [Support Server](https://discord.gg/${dblBots.support}) | [Github Repository](${dblBots.github}) | [Website](${dblBots.website})`)
    msg.channel.send(embed);
