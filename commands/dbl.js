@@ -41,3 +41,4 @@ if (!args[0]) {
   .setAuthor(`${dblBots.username}#${dblBots.discriminator}'s Widget`)
   .setImage(`https://discordbots.org/api/widget/${dblBots.id}.svg`)
   }
+}
