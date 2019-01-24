@@ -53,4 +53,3 @@ if (!args[0]) {
   msg.channel.send(embed);
   }
 }
-});
