@@ -1,8 +1,17 @@
 const Discord = require("discord.js");
 const DBL = require("dblapi.js");
 const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUxOTMzMDQxODY0MjkxMTIzNyIsImJvdCI6dHJ1ZSwiaWF0IjoxNTQ1MTg4Mzk4fQ.uYriOBoJNFgitrVf9edd6_P-xME1bBSlSD19PHBBWsQ');
+const config = require("../config.json")
+const fs = require("fs");
 
 exports.run = async(client, msg, args) => {
+  let oredon = JSON.parse(fs.readFileSync("./oredon.json", "utf8"));
+  if(!oredon[msg.guild.id]){ 
+      oredon[msg.guild.id] = {
+       prefix: config.bot_prefix
+     }
+}
+
 if (!args[0]) {
   let embed = new RichEmbed()
   .setColor('RANDOM')
@@ -43,4 +52,3 @@ if (!args[0]) {
   .setImage(`https://discordbots.org/api/widget/${dblBots.id}.svg`)
   msg.channel.send(embed);
   }
-}
