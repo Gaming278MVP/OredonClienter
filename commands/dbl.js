@@ -33,13 +33,15 @@ if (!args[0]) {
         user = msg.author;
 }
   let id = msg.mentions.members.first().user.id;
-  let dblBots = await dbl.getBot(id) 
+  let dblBots = await dbl.getBot(id)
+  
+  let mem = require("util").inspect(bot)
  
   let embed = new Discord.RichEmbed()
   .setAuthor(`Stats of ${dblBots.username}#${dblBots.discriminator}`)
-  .setThumbnail(dblBots.displayAvatarURL)
+  .setThumbnail(mem.displayAvatarURL)
   .setColor('RANDOM')
-  .setDescription(` \`\`\`${dblBots.shortdesc}\`\`\` \n \n**Monthly Votes: ${dblBots.monthlyPoints}** \n**Total Votes:** ${dblBots.points} \n**Lib:** ${dblBots.lib} \n**Prefix:** ${dblBots.prefix} \n **Tags:** ${dblBots.tags} **Certified:** ${colorMaping[dblBots.certifiedBot]} \n**Posted Guild Count:** ${dblBots.server_count} \n**Posted Shard Count:** ${dblBots.shards} \n \n[Discord Bot List Page](https://discordbots.org/bot/${dblBots.id})`)
+  .setDescription(` \`\`\`${dblBots.shortdesc}\`\`\` \n \n**Monthly Votes: ${dblBots.monthlyPoints}** \n**Total Votes:** ${dblBots.points} \n**Lib:** ${dblBots.lib} \n**Prefix:** ${dblBots.prefix} \n*Tags:** ${dblBots.tags} \n**Certified:** ${colorMaping[dblBots.certifiedBot]} \n**Posted Guild Count:** ${dblBots.server_count} \n**Posted Shard Count:** ${dblBots.shards} \n \n[Discord Bot List Page](https://discordbots.org/bot/${dblBots.id}) | [Invite](${dblBots.invite}) | [Support Server](${dblBots.support}) | [Github Repository](${dblBots.github}) | [Website]${dblBots.website}`)
    msg.channel.send(embed);
 
   } else if(args[0] == 'widget') {
