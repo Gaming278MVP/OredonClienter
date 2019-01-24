@@ -6,7 +6,7 @@ const fs = require("fs");
 const colorMaping =
 {
   "false": "Here is no",
-  "true": "Here is yes."
+  "true": "<:dblCertified:392249976639455232>"
 } 
 
 exports.run = async(client, msg, args) => {
