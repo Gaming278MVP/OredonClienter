@@ -17,7 +17,7 @@ if (!args[0]) {
   .setColor('RANDOM')
   .setThumbnail(client.user.displayAvatarURL)
   .setTitle("Correct usage is:")
-  .setDescription(`Use ${oredon[msg.guild.id].prefix}dbl <options> <@bot | botID> \n \n**Available options:** \n- info \n-widget \n \n**Note:** Please make sure the bot you mention is available on [Discord Bot List](https://discordbots.org) and yeah only bot!`)
+  .setDescription(`Use ${oredon[msg.guild.id].prefix}dbl <options> <@bot | botID> \n \n**Available options:** \n- info \n- widget \n \n**Note:** Please make sure the bot you mention is available on [Discord Bot List](https://discordbots.org) and yeah only bot!`)
   
   msg.channel.send(embed); // Test dulu yah!
   } else if(args[0] == 'info') {
