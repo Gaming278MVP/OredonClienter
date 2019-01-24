@@ -28,7 +28,7 @@ if (!args[0]) {
         user = msg.author;
 }
   let id = msg.mentions.members.first().user.id;
-  let dblBots = dbl.getBot(id) 
+  let dblBots = await dbl.getBot(id) 
  
   let embed = new Discord.RichEmbed()
   .setAuthor(`Stats of ${dblBots.username}#${dblBots.discriminator}`, '<:discordbotlist:338808864352763904>')
@@ -44,7 +44,7 @@ if (!args[0]) {
         user = msg.author;
 }
   let id = msg.mentions.members.first().user.id;
-  let dblBots = dbl.getBot(id)
+  let dblBots = await dbl.getBot(id)
   
   let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
