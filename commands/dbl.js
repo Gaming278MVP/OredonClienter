@@ -26,6 +26,7 @@ if (!args[0]) {
   .setColor('RANDOM')
   .addField(` \`\`\`${dblBots.shortdesc}\`\`\` \n \n**Monthly Votes:** \n**Total Votes:** ${dblBots.points} \n**Lib:** ${dblBots.lib} \n**Prefix:** ${dblBots.prefix} \n **Tags:** ${dblBots.tags} **Certified:** ${dblBots.certifiedBot} \n \n[Discord Bot List Page](https://discordbots.org/bot/${dblBots.id}) | [Invite](${dblBots.invite?}) | [Support Server](${dblBots.support?}) | [Github Repository](${dblBots.github?}) | [Website](${dblBots.website?})`)
    msg.channel.send(embed);
+
   } else if(args[0] == 'widget') {
     let user;
     if (msg.mentions.members.first()) {
@@ -40,5 +41,6 @@ if (!args[0]) {
   .setColor('RANDOM')
   .setAuthor(`${dblBots.username}#${dblBots.discriminator}'s Widget`)
   .setImage(`https://discordbots.org/api/widget/${dblBots.id}.svg`)
+  msg.channel.send(embed);
   }
 }
