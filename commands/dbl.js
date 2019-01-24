@@ -49,7 +49,7 @@ if (!args[0]) {
   let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
   .setAuthor(`${dblBots.username}#${dblBots.discriminator}'s Widget`)
-  .setImage(`https://discordbots.org/api/widget/${dblBots.id}.svg`)
+  .setImage(`https://discordbots.org/api/widget/${dblBots.id}.png`)
   msg.channel.send(embed);
   }
 }
