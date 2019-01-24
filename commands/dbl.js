@@ -6,8 +6,9 @@ exports.run = async(client, msg, args) => {
 if (!args[0]) {
   let embed = new RichEmbed()
   .setColor('RANDOM')
-  .setTitle("<===== Tutorial ModLog Help =====>")
-  .setDescription(`${oredon[msg.guild.id].prefix}modlog channel #channel \n${oredon[msg.guild.id].prefix}modlog on \n${oredon[msg.guild.id].prefix}modlog off \n \nExample: \n${oredon[msg.guild.id].prefix}modlog channel #logs`)
+  .setThumbnail(client.user.displayAvatarURL)
+  .setTitle("Correct usage is:")
+  .setDescription(`Use ${oredon[msg.guild.id].prefix}dbl <options> <@bot | botID> \n \n**Available options:** \n- info \n-widget \n \n**Note:** Please make sure the bot you mention is available on [Discord Bot List](https://discordbots.org) and yeah only bot!`)
   
   msg.channel.send(embed); // Test dulu yah!
   } else if(args[0] == 'info') {
