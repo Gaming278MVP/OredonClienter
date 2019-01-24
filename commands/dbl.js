@@ -33,7 +33,7 @@ if (!args[0]) {
   let embed = new Discord.RichEmbed()
   .setAuthor(`Stats of ${dblBots.username}#${dblBots.discriminator}`, dblBots.avatar)
   .setColor('RANDOM')
-  .setDescription(` \`\`\`${dblBots.shortdesc}\`\`\` \n \n**Monthly Votes:** \n**Total Votes:** ${dblBots.points} \n**Lib:** ${dblBots.lib} \n**Prefix:** ${dblBots.prefix} \n **Tags:** ${dblBots.tags} **Certified:** ${dblBots.certifiedBot} \n \n[Discord Bot List Page](https://discordbots.org/bot/${dblBots.id}) | ${dblBots.invite} | ${dblBots.support} | ${dblBots.github} | ${dblBots.website}`)
+  .setDescription(` \`\`\`${dblBots.shortdesc}\`\`\` \n \n**Monthly Votes:** \n**Total Votes:** ${dblBots.points} \n**Lib:** ${dblBots.lib} \n**Prefix:** ${dblBots.prefix} \n **Tags:** ${dblBots.tags} **Certified:** ${dblBots.certifiedBot} \n \n[Discord Bot List Page](https://discordbots.org/bot/${dblBots.id})`)
    msg.channel.send(embed);
 
   } else if(args[0] == 'widget') {
