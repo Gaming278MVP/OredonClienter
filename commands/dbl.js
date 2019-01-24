@@ -19,7 +19,7 @@ if (!args[0]) {
   .setTitle("Correct usage is:")
   .setDescription(`Use ${oredon[msg.guild.id].prefix}dbl <options> <@bot | botID> \n \n**Available options:** \n- info \n- widget \n \n**Note:** Please make sure the bot you mention is available on [Discord Bot List](https://discordbots.org) and yeah only bot!`)
   
-  msg.channel.send(embed); // Test dulu yah!
+  msg.channel.send(embed); // Will be send
   } else if(args[0] == 'info') {
     let user;
     if (msg.mentions.members.first()) {
@@ -31,7 +31,7 @@ if (!args[0]) {
   let dblBots = await dbl.getBot(id) 
  
   let embed = new Discord.RichEmbed()
-  .setAuthor(`Stats of ${dblBots.username}#${dblBots.discriminator}`, '<:discordbotlist:338808864352763904>')
+  .setAuthor(`Stats of ${dblBots.username}#${dblBots.discriminator}`, dblBots.avatar)
   .setColor('RANDOM')
   .setDescription(` \`\`\`${dblBots.shortdesc}\`\`\` \n \n**Monthly Votes:** \n**Total Votes:** ${dblBots.points} \n**Lib:** ${dblBots.lib} \n**Prefix:** ${dblBots.prefix} \n **Tags:** ${dblBots.tags} **Certified:** ${dblBots.certifiedBot} \n \n[Discord Bot List Page](https://discordbots.org/bot/${dblBots.id}) | ${dblBots.invite} | ${dblBots.support} | ${dblBots.github} | ${dblBots.website}`)
    msg.channel.send(embed);
