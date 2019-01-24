@@ -36,7 +36,8 @@ if (!args[0]) {
   let dblBots = await dbl.getBot(id) 
  
   let embed = new Discord.RichEmbed()
-  .setAuthor(`Stats of ${dblBots.username}#${dblBots.discriminator}`, dblBots.avatar)
+  .setAuthor(`Stats of ${dblBots.username}#${dblBots.discriminator}`)
+  .setThumbnail(dblBots.avatar)
   .setColor('RANDOM')
   .setDescription(` \`\`\`${dblBots.shortdesc}\`\`\` \n \n**Monthly Votes: ${dblBots.monthlyPoints}** \n**Total Votes:** ${dblBots.points} \n**Lib:** ${dblBots.lib} \n**Prefix:** ${dblBots.prefix} \n **Tags:** ${dblBots.tags} **Certified:** ${colorMaping[dblBots.certifiedBot]} \n**Posted Guild Count:** ${dblBots.server_count} \n**Posted Shard Count:** ${dblBots.shards} \n \n[Discord Bot List Page](https://discordbots.org/bot/${dblBots.id})`)
    msg.channel.send(embed);
