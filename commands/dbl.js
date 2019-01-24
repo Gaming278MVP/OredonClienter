@@ -35,7 +35,7 @@ if (!args[0]) {
   let id = msg.mentions.members.first().user.id;
   let dblBots = await dbl.getBot(id)
   
-  let mem = require("util").inspect(bot)
+  let mem = require("util").inspect(dblBots)
  
   let embed = new Discord.RichEmbed()
   .setAuthor(`Stats of ${dblBots.username}#${dblBots.discriminator}`)
