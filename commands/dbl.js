@@ -52,3 +52,4 @@ if (!args[0]) {
   .setImage(`https://discordbots.org/api/widget/${dblBots.id}.svg`)
   msg.channel.send(embed);
   }
+}
