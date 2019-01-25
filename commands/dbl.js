@@ -44,6 +44,16 @@ if (!args[0]) {
   
   msg.channel.send(embed); // Will be send
   } else if(args[0] == 'info') {
+  let user;
+  if (msg.mentions.members.first()) {
+    user = msg.mentions.members.first();
+  } else {
+    user = msg.author;
+}
+  let id = msg.mentions.members.first().user.id;
+  let avatar = msg.mentions.members.first().user.displayAvatarURL;
+  let dblBots = await dbl.getBot(id) 
+   
   let embed = new Discord.RichEmbed()
   .setAuthor(`Stats of ${dblBots.username}#${dblBots.discriminator}`, 'https://images-ext-2.discordapp.net/external/NUQ1frynEtUDB_-ByRw_NBdTl0sVeNacGQogqRLZ77Y/https/cdn.discordapp.com/emojis/393548363879940108.gif')
   .setThumbnail(avatar)
@@ -53,6 +63,16 @@ if (!args[0]) {
   msg.channel.send(embed);
   
   } else if(args[0] == 'widget') {
+  let user;
+  if (msg.mentions.members.first()) {
+    user = msg.mentions.members.first();
+  } else {
+    user = msg.author;
+}
+  let id = msg.mentions.members.first().user.id;
+  let avatar = msg.mentions.members.first().user.displayAvatarURL;
+  let dblBots = await dbl.getBot(id) 
+   
   let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
   .setAuthor(`${dblBots.username}#${dblBots.discriminator}'s Widget`)
