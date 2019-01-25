@@ -45,6 +45,7 @@ if (!args[0]) {
   let id = msg.mentions.members.first().user.id;
   let avatar = msg.mentions.members.first().user.displayAvatarURL;
   let dblBots = await dbl.getBot(id)
+  if (!mention.user.bot) return;
   
   if(dblBots.server_count === undefined) dblBots.server_count = 'None'
   dblBots.github ? dblBots.github : 'No Github Repository'
