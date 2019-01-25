@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const DBL = require("dblapi.js");
-const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUxOTMzMDQxODY0MjkxMTIzNyIsImJvdCI6dHJ1ZSwiaWF0IjoxNTQ1MTg4Mzk4fQ.uYriOBoJNFgitrVf9edd6_P-xME1bBSlSD19PHBBWsQ');
+const dbl = new DBL(process.env.DBLAPI);
 const config = require("../config.json")
 const fs = require("fs");
 const colorMaping =
