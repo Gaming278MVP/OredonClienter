@@ -12,7 +12,7 @@ const client = new Client({
 });
 
 const DBL = require("dblapi.js");
-const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUxOTMzMDQxODY0MjkxMTIzNyIsImJvdCI6dHJ1ZSwiaWF0IjoxNTQ1MTg4Mzk4fQ.uYriOBoJNFgitrVf9edd6_P-xME1bBSlSD19PHBBWsQ', client);
+const dbl = new DBL(process.env.DBLAPI, client);
 const YouTube = require("simple-youtube-api");
 const math = require('mathjs')
 const config = require("./config.json");
