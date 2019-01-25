@@ -22,15 +22,6 @@ exports.run = async(client, msg, args) => {
      }
 }
 
-if (!args[0]) {
-  let embed = new Discord.RichEmbed()
-  .setColor('RANDOM')
-  .setThumbnail(client.user.displayAvatarURL)
-  .setTitle("Correct usage is:")
-  .setDescription(`Use ${oredon[msg.guild.id].prefix}dbl <options> <@bot | botID> \n \n**Available options:** \n- info \n- widget \n \n**Note:** Please make sure the bot you mention is available on [Discord Bot List](https://discordbots.org) and yeah only bot!`)
-  
-  msg.channel.send(embed); // Will be send
-  } else if(args[0] == 'info') {
     let user;
     if (msg.mentions.members.first()) {
       user = msg.mentions.members.first();
@@ -41,8 +32,17 @@ if (!args[0]) {
   let avatar = msg.mentions.members.first().user.displayAvatarURL;
   let dblBots = await dbl.getBot(id)
   
-  let mem = require("util").inspect(dblBots)
- 
+if (!dblBots || dblBots === undefined) return msg.channel.send("**Your's Bot provided is not Registered on Discord Bot List**!");
+  
+if (!args[0]) {
+  let embed = new Discord.RichEmbed()
+  .setColor('RANDOM')
+  .setThumbnail(client.user.displayAvatarURL)
+  .setTitle("Correct usage is:")
+  .setDescription(`Use ${oredon[msg.guild.id].prefix}dbl <options> <@bot | botID> \n \n**Available options:** \n- info \n- widget \n \n**Note:** Please make sure the bot you mention is available on [Discord Bot List](https://discordbots.org) and yeah only bot!`)
+  
+  msg.channel.send(embed); // Will be send
+  } else if(args[0] == 'info') {
   let embed = new Discord.RichEmbed()
   .setAuthor(`Stats of ${dblBots.username}#${dblBots.discriminator}`, 'https://images-ext-2.discordapp.net/external/NUQ1frynEtUDB_-ByRw_NBdTl0sVeNacGQogqRLZ77Y/https/cdn.discordapp.com/emojis/393548363879940108.gif')
   .setThumbnail(avatar)
@@ -50,19 +50,8 @@ if (!args[0]) {
   .setDescription(` \`\`\`${dblBots.shortdesc}\`\`\` \n \n**Monthly Votes:** ${dblBots.monthlyPoints} \n**Total Votes:** ${dblBots.points} \n**Lib:** ${dblBots.lib} \n**Prefix:** ${dblBots.prefix} \n**Tags:** ${dblBots.tags.join(', ')} \n**Certified:** ${colorMaping[dblBots.certifiedBot]} \n**Posted Guild Count:** ${dblBots.server_count} \n**Posted Shard Count:** ${dblBots.shard_id} \n \n[Discord Bot List Page](https://discordbots.org/bot/${dblBots.id}) | [Invite](${dblBots.invite}) | [Support Server](https://discord.gg/${dblBots.support}) | [Github Repository](${dblBots.github}) | [Website](${dblBots.website})`)
   .setFooter('Credits DBL | Powered By: Discord Bot List', 'https://images-ext-2.discordapp.net/external/1eA2X2zC7-8RAkK8d-VRE_jCyeXxe1MvLPqNDDVKorM/https/cdn.discordapp.com/emojis/376811626197811200.png')
   msg.channel.send(embed);
-
-  if (!dblBots || dblBots === undefined) return msg.channel.send("**Your's Bot provided is not Registered on Discord Bot List**!");
   
   } else if(args[0] == 'widget') {
-    let user;
-    if (msg.mentions.members.first()) {
-      user = msg.mentions.members.first();
-    } else {
-        user = msg.author;
-}
-  let id = msg.mentions.members.first().user.id;
-  let dblBots = await dbl.getBot(id)
-  
   let embed = new Discord.RichEmbed()
   .setColor('RANDOM')
   .setAuthor(`${dblBots.username}#${dblBots.discriminator}'s Widget`)
