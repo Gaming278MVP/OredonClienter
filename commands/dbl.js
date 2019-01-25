@@ -68,7 +68,5 @@ if (!args[0]) {
   .setAuthor(`${dblBots.username}#${dblBots.discriminator}'s Widget`)
   .setImage(`https://discordbots.org/api/widget/${dblBots.id}.png`)
   msg.channel.send(embed);
-    
-  if (!dblBots || dblBots === undefined) return msg.channel.send("**Your's Bot provided is not Registered on Discord Bot List**!");
   }
 }
