@@ -47,9 +47,9 @@ if (!args[0]) {
   let dblBots = await dbl.getBot(id)
   
   if(dblBots.server_count === undefined) dblBots.server_count = 'None'
-  if(dblBots.github === undefined) dblBots.github = 'No Github Repository'
-  if(dblBots.website === undefined) dblBots.website = 'No Website'
-  if(dblBots.support === undefined) dblBots.support = 'No Support Server'
+  dblBots.github ? dblBots.github : 'No Github Repository'
+  dblBots.website ? dblBots.website : 'No Website'
+  dblBots.support ? dblBots.support : 'No Support Server'
    
    // Created of codes
    let embed = new Discord.RichEmbed()
