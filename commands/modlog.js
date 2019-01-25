@@ -53,5 +53,3 @@ exports.help = {
   name: "modlog",
   description: "send a log from moderation command!"
 }
-
-// gimana kalo beda file
