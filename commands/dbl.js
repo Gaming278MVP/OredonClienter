@@ -42,8 +42,11 @@ if (!args[0]) {
   let dblBots = await dbl.getBot(id)
   
   if(dblBots.server_count === undefined) dblBots.server_count = 'None'
+  if(dblBots.github === undefined) dblBots.github = 'No Github Repository'
+  if(dblBots.website === undefined) dblBots.website = 'No Website'
+  if(dblBots.support === undefined) dblBots.support = 'No Support Server'
    
-  let embed = new Discord.RichEmbed()
+   let embed = new Discord.RichEmbed()
   .setAuthor(`Stats of ${dblBots.username}#${dblBots.discriminator}`, 'https://images-ext-2.discordapp.net/external/NUQ1frynEtUDB_-ByRw_NBdTl0sVeNacGQogqRLZ77Y/https/cdn.discordapp.com/emojis/393548363879940108.gif')
   .setThumbnail(avatar)
   .setColor('RANDOM')
