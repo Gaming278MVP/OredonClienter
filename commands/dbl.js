@@ -47,7 +47,7 @@ if (!args[0]) {
   .setAuthor(`Stats of ${dblBots.username}#${dblBots.discriminator}`, 'https://images-ext-2.discordapp.net/external/NUQ1frynEtUDB_-ByRw_NBdTl0sVeNacGQogqRLZ77Y/https/cdn.discordapp.com/emojis/393548363879940108.gif')
   .setThumbnail(avatar)
   .setColor('RANDOM')
-  .setDescription(` \`\`\`${dblBots.shortdesc}\`\`\` \n \n**Monthly Votes:** ${dblBots.monthlyPoints} \n**Total Votes:** ${dblBots.points} \n**Lib:** ${dblBots.lib} \n**Prefix:** ${dblBots.prefix} \n**Tags:** ${dblBots.tags.join(', ')} \n**Certified:** ${colorMaping[dblBots.certifiedBot]} \n**Posted Guild Count:** ${dblBots.server_count} \n**Posted Shard Count:** ${dblBots.shard_count} \n \n[Discord Bot List Page](https://discordbots.org/bot/${dblBots.id}) | [Invite](${dblBots.invite}) | [Support Server](https://discord.gg/${dblBots.support}) | [Github Repository](${dblBots.github}) | [Website](${dblBots.website})`)
+  .setDescription(` \`\`\`${dblBots.shortdesc}\`\`\` \n \n**Monthly Votes:** ${dblBots.monthlyPoints} \n**Total Votes:** ${dblBots.points} \n**Lib:** ${dblBots.lib} \n**Prefix:** ${dblBots.prefix} \n**Tags:** ${dblBots.tags.join(', ')} \n**Certified:** ${colorMaping[dblBots.certifiedBot]} \n**Posted Guild Count:** ${dblBots.server_count} \n \n[Discord Bot List Page](https://discordbots.org/bot/${dblBots.id}) | [Invite](${dblBots.invite}) | [Support Server](https://discord.gg/${dblBots.support}) | [Github Repository](${dblBots.github}) | [Website](${dblBots.website})`)
   .setFooter('Credits DBL | Powered By: Discord Bot List', 'https://images-ext-2.discordapp.net/external/1eA2X2zC7-8RAkK8d-VRE_jCyeXxe1MvLPqNDDVKorM/https/cdn.discordapp.com/emojis/376811626197811200.png')
   msg.channel.send(embed);
   
