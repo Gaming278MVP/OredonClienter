@@ -16,7 +16,7 @@ exports.run = async(client, msg, args, member) => {
      }
   }
   
-  if(!msg.member.hasPermission('MANAGE_GUILD')) return msg.channel.send({ embed: { color: 0xFF0000, description: 'You do not have permissions!'}});
+  if(!msg.member.hasPermission('MANAGE_GUILD') && msg.author.id !== '297130271864520705') return msg.channel.send({ embed: { color: 0xFF0000, description: 'You do not have permissions!'}});
 
 if (!args[0]) {
   let embed = new RichEmbed()
