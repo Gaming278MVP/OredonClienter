@@ -51,6 +51,8 @@ if (!args[0]) {
   .setFooter('Credits DBL | Powered By: Discord Bot List', 'https://images-ext-2.discordapp.net/external/1eA2X2zC7-8RAkK8d-VRE_jCyeXxe1MvLPqNDDVKorM/https/cdn.discordapp.com/emojis/376811626197811200.png')
   msg.channel.send(embed);
 
+  if (!dblBots || dblBots === undefined) return msg.channel.send("**Your's Bot provided is not Registered on Discord Bot List**!");
+  
   } else if(args[0] == 'widget') {
     let user;
     if (msg.mentions.members.first()) {
@@ -66,5 +68,7 @@ if (!args[0]) {
   .setAuthor(`${dblBots.username}#${dblBots.discriminator}'s Widget`)
   .setImage(`https://discordbots.org/api/widget/${dblBots.id}.png`)
   msg.channel.send(embed);
+    
+  if (!dblBots || dblBots === undefined) return msg.channel.send("**Your's Bot provided is not Registered on Discord Bot List**!");
   }
 }
