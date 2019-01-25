@@ -39,7 +39,9 @@ if (!args[0]) {
 }
   let id = msg.mentions.members.first().user.id;
   let avatar = msg.mentions.members.first().user.displayAvatarURL;
-  let dblBots = await dbl.getBot(id) 
+  let dblBots = await dbl.getBot(id)
+  
+  if(dblBots.server_count === undefined) dblBots.server_count = 'None'
    
   let embed = new Discord.RichEmbed()
   .setAuthor(`Stats of ${dblBots.username}#${dblBots.discriminator}`, 'https://images-ext-2.discordapp.net/external/NUQ1frynEtUDB_-ByRw_NBdTl0sVeNacGQogqRLZ77Y/https/cdn.discordapp.com/emojis/393548363879940108.gif')
