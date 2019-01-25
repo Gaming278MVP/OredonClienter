@@ -21,19 +21,6 @@ exports.run = async(client, msg, args) => {
        prefix: config.bot_prefix
      }
 }
-//=====================================================
-let user;
-  if (msg.mentions.members.first()) {
-    user = msg.mentions.members.first();
-  } else {
-    user = msg.author;
-}
-  let id = msg.mentions.members.first().user.id;
-  let avatar = msg.mentions.members.first().user.displayAvatarURL;
-  let dblBots = await dbl.getBot(id)
-//=====================================================
-  
-if (!dblBots || dblBots === undefined) return msg.channel.send("**Your's Bot provided is not Registered on Discord Bot List**!");
   
 if (!args[0]) {
   let embed = new Discord.RichEmbed()
