@@ -8,7 +8,7 @@ let reps = require('../database/rep.json');
 let info = require('../database/note.json');
 let bg = require('../database/background.json');
 let fishh = require('../database/fish.json');
-let works = require('.../database/works.json');
+let works = require('../database/works.json');
 
 Canvas.registerFont(`${process.cwd()}/assets/font/NotoEmoji-Regular.ttf`, "NotoEmoji") 
 Canvas.registerFont(`${process.cwd()}/assets/font/Roboto-Regular.ttf`, "RobotoRegular") 
