@@ -36,4 +36,4 @@ exports.conf = {
 exports.help = {
     name: 'balance',
     description: 'To show someone Balance Amount',
-u
+}
