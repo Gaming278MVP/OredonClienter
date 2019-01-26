@@ -70,3 +70,4 @@ exports.conf = {
 exports.help = {
     name: "fish",
     description: "Go fishing.",
+}
