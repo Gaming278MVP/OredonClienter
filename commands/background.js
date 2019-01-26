@@ -21,7 +21,7 @@ exports.run = async (client, message, args, color) => {
   if (bal[message.author.id].balance < amount) return message.channel.send(`**${message.author.username}**, You not have insufficient balance yet you need 💴 **${amount}** for changes background, Keep active and don't forget to take your daily everyday!`) 
   
   let newBg = message.attachments.first();
-  if(!newBg) return args.missing(message, 'You need to upload the image to set new background', client.commands.get('background').help);
+  if(!newBg) return args.missing(message, 'You need to upload the image to set new background');
   bg[message.author.id].background = newBg.url;
   let curbal = bal[message.author.id].balance
   bal[message.author.id].balance = curbal - amount;
