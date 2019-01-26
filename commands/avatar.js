@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 
 // Exports of to runnings.
 exports.run = (client, message, args) => {
+  // Variables
   let aTaged;
   if (message.mentions.users.first()) {
     aTaged = message.mentions.users.first();
@@ -10,6 +11,7 @@ exports.run = (client, message, args) => {
       aTaged = message.author;
   }
   
+  // Created of codes
   let embed = new Discord.RichEmbed()
   .setTitle(`${aTaged.username}'s Avatar`)
   .setImage(aTaged.displayAvatarURL)
