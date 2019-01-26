@@ -66,3 +66,4 @@ exports.help = {
     name: 'level',
     description: 'To check someone level',
     usage: 'level [@mention]'
+}
